@@ -1,9 +1,13 @@
 import numpy as np
 
 class DetectorLayer:
-    def __init__(self):
+    def __init__(self, name = "detectorlayer"):
         self.input = []
+        self.name = name
 
+    def __repr__(self):
+        return f"\Detector layer : {self.name}\nOutput_Shape : {self.output.shape[0]}*{self.output.shape[1]}*{self.output.shape[2]}"
+    
     def forward(self, input):
         #ReLU
         self.input = input
