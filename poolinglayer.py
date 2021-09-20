@@ -15,10 +15,14 @@ class DetectorLayer:
 
 
 class PoolLayer:
-    def __init__(self, size_filter, size_stride, mode):
+    def __init__(self, size_filter, size_stride, mode, name="poollayer"):
         self.size_filter = size_filter
         self.size_stride = size_stride
         self.mode = mode #average or max
+        self.name = name
+
+    def __repr__(self):
+        return f"\Pool layer : {self.name}\nOutput_Shape : {self.pooled_result.shape[0]}*{self.pooled_result.shape[1]}*{self.pooled_result.shape[2]}"
 
     def forward(self, inputs):
         self.input = inputs
