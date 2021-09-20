@@ -6,7 +6,7 @@ class DetectorLayer:
         self.name = name
 
     def __repr__(self):
-        return f"\Detector layer : {self.name}\nOutput_Shape : {self.output.shape[0]}*{self.output.shape[1]}*{self.output.shape[2]}"
+        return f"Detector layer : {self.name}\nOutput_Shape : {self.output.shape[0]}*{self.output.shape[1]}*{self.output.shape[2]}\n"
     
     def forward(self, input):
         #ReLU
@@ -26,7 +26,7 @@ class PoolLayer:
         self.name = name
 
     def __repr__(self):
-        return f"\Pool layer : {self.name}\nOutput_Shape : {self.pooled_result.shape[0]}*{self.pooled_result.shape[1]}*{self.pooled_result.shape[2]}"
+        return f"Pool layer : {self.name}\nOutput_Shape : {self.pooled_result.shape[0]}*{self.pooled_result.shape[1]}*{self.pooled_result.shape[2]}\n"
 
     def forward(self, inputs):
         self.input = inputs
