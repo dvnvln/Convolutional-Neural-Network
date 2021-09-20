@@ -34,6 +34,4 @@ seq = SeqModel(arrlay)
 
 y = seq.forward_propagate_many(train_X[:10])
 
-# print(y)
-
 seq.summary()
