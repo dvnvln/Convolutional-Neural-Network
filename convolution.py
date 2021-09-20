@@ -31,7 +31,7 @@ class ConvolutionalLayer:
         self.name = name
 
     def __repr__(self):
-        return f"\nConvolutional layer : {self.name}\nOutput_Shape : {self.n_filter}*{self.size_filter[1]}*{self.size_filter[2]}\nNParams : {(self.n_filter*self.size_filter[2]*self.size_filter[1]+1) * self.size_filter[0]}\n"
+        return f"\nConvolutional layer : {self.name}\nOutput_Shape : {self.output.shape[0]}*{self.output.shape[1]}*{self.output.shape[2]}\nNParams : {(self.size_filter[0]*self.size_filter[2]*self.size_filter[1]+1) * self.n_filter}\n"
 
 
     def set_detector(self, detector: str = 'ReLU'):
