@@ -22,6 +22,20 @@ class SeqModel:
             # print("===========")
             self.layers[i].forward(self.layers[i-1].output)
         return self.layers[-3].output
+
+    def forward_propagate_many(self, inputs, toFile=None):
+        arr_output = []
+        for instance in inputs:
+            self.inp(instance)
+            out = self.forward_propagate()
+            if toFile:
+                with open(toFile,"w+") as f:
+                    f.write(out)
+            # else:
+            #     print(out)
+            #     print()
+            arr_output.append(out)
+        return arr_output
         
     def back_propagate(self):
         pass
