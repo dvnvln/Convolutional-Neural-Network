@@ -17,6 +17,11 @@ class DetectorLayer:
         # print(self.output)
         return self.output
 
+    def backward(self, out_error):
+        dx = out_error.copy()
+        dx[self.inputs < 0] = 0
+        return dx
+
 
 class PoolLayer:
     def __init__(self, size_filter, size_stride, mode, name="poollayer"):
@@ -50,3 +55,16 @@ class PoolLayer:
         self.pooled_result = pooled_result
         self.output = pooled_result
         return pooled_result
+
+    def backward(self, out_error):
+        # F, W, H = self.input.shape
+        dimension = self.input.shape
+        dx = np.zeros(self.input.shape)
+        for i in range(0, input):
+            for j in range(0, dimension[1], self._filter_size):
+                for k in range(0, dimension[2], self._filter_size):
+                    st = np.argmax(self.input[i, j:j+self._filter_size, k:k+self._filter_size])
+                    (idx, idy) = np.unravel_index(st, (self._filter_size, self._filter_size))
+                    if ((j + idx) < dimension[1] and (k+idy) < dimension[2]):
+                        dx[i, j+idx, k+idy] = out_error[i, int(j/self._filter_size) % out_error.shape[1], int(k/self._filter_size) % out_error.shape[2]]
+        return dx
