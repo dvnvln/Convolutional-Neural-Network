@@ -54,6 +54,7 @@ class ConvolutionalLayer:
         shape_receptive_field = self.calculate_receptive_map_size()
         output = np.zeros((self.n_filter, shape_receptive_field[1], shape_receptive_field[2]))
         # print(output)
+        self.input = input
         for filter in range(self.n_filter):
             for channel in range(shape_receptive_field[0]):
                 # print(output)
@@ -66,6 +67,13 @@ class ConvolutionalLayer:
                         output[filter, t, l] += np.sum(np.multiply(input[channel,rec_start_t:rec_end_t,rec_start_l:rec_end_l],self.filters[filter, channel])) + self.bias[filter]
         self.output = output
         return output
+
+    def backward(self, prev_errors):
+        self.derr = prev_errors * self.input
+        return self.derr
+
+    def update_weights(self, learning_rate):
+        self.filters -= learning_rate*self.derr
 
 # conv = ConvolutionalLayer((3,3,3),(0,0),2,(3,2,2),(1,1))
 # filter1 = [[[0,-1],
