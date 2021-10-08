@@ -36,4 +36,4 @@ seq = SeqModel(arrlay)
 
 # seq.summary()
 
-seq.train(train_X, train_y, 3, 0.2)
+seq.train(train_X[:10], train_y[:10], 3, 0.2)

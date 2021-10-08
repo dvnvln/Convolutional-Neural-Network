@@ -45,10 +45,10 @@ class SeqModel:
 
     def train(self, X, y, epoch, learning_rate):
         for _ in range(epoch):
-            for j in X:
-                self.inp(j)
+            for j in range(len(X)):
+                self.inp(X[j])
                 out = self.forward_propagate()
-                self.back_propagate(learning_rate,out,y)
+                self.back_propagate(learning_rate,out,y[j])
 
 class Layer:
     def __init__(self):
