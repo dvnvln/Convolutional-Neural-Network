@@ -37,8 +37,18 @@ class SeqModel:
             arr_output.append(out)
         return arr_output
         
-    def back_propagate(self):
-        pass
+    def back_propagate(self, learning_rate, output, target):
+        error = -(target-output)
+        for i in range(len(self.layers),1):
+            error = self.layers[i].backward(error)
+            self.layers[i].update_weights(learning_rate)
+
+    def train(self, X, y, epoch, learning_rate):
+        for _ in epoch:
+            for j in X:
+                self.inp(j)
+                out = self.forward_propagate()
+                self.back_propagate(learning_rate,out,y)
 
 class Layer:
     def __init__(self):

@@ -28,6 +28,7 @@ class DenseLayer:
         self.deltaWeight = np.zeros((self.weights.shape))
 
     def update_weights(self, learning_rate):
+        momentum = 1
         # Update weight formula = w  + momentum * w + learning_rate * errors * output
         # Update bias formula = bias + momentum * bias + learning_rate * errors
         for i in range(self.shape[0]):
