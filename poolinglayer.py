@@ -57,7 +57,6 @@ class PoolLayer:
         return pooled_result
 
     def backward(self, out_error):
-        # F, W, H = self.input.shape
         dimension = self.input.shape
         dx = np.zeros(self.input.shape)
         for i in range(0, input):
