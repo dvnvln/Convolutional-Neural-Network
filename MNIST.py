@@ -32,6 +32,8 @@ arrlay = [inp, convo, det, pool, dense, out]
 
 seq = SeqModel(arrlay)
 
-y = seq.forward_propagate_many(train_X[:10])
+# y = seq.forward_propagate_many(train_X[:10])
 
-seq.summary()
+# seq.summary()
+
+seq.train(train_X, train_y, 3, 0.2)

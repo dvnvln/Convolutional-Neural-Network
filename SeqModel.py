@@ -44,7 +44,7 @@ class SeqModel:
             self.layers[i].update_weights(learning_rate)
 
     def train(self, X, y, epoch, learning_rate):
-        for _ in epoch:
+        for _ in range(epoch):
             for j in X:
                 self.inp(j)
                 out = self.forward_propagate()
