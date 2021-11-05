@@ -41,22 +41,22 @@ class LSTMLayer:
     def tanh(self, x):
         return math.tanh(x)
 
-x = np.array([[1,2],[0.5,3]])
-model = LSTMLayer(1,input_shape=(2,2))
-model.uf[0][0] = 0.7
-model.uf[0][1] = 0.45
-model.ui[0][0] = 0.95
-model.ui[0][1] = 0.8
-model.uc[0][0] = 0.45
-model.uc[0][1] = 0.25
-model.uo[0][0] = 0.6
-model.uo[0][1] = 0.4
-model.wf[0] = 0.1
-model.bf[0] = 0.15
-model.wi[0] = 0.8
-model.bi[0] = 0.65
-model.wc[0] = 0.15
-model.bc[0] = 0.2
-model.wo[0] = 0.25
-model.bo[0] = 0.1
-print(model.forward(x))
+# x = np.array([[1,2],[0.5,3]])
+# model = LSTMLayer(1,input_shape=(2,2))
+# model.uf[0][0] = 0.7
+# model.uf[0][1] = 0.45
+# model.ui[0][0] = 0.95
+# model.ui[0][1] = 0.8
+# model.uc[0][0] = 0.45
+# model.uc[0][1] = 0.25
+# model.uo[0][0] = 0.6
+# model.uo[0][1] = 0.4
+# model.wf[0] = 0.1
+# model.bf[0] = 0.15
+# model.wi[0] = 0.8
+# model.bi[0] = 0.65
+# model.wc[0] = 0.15
+# model.bc[0] = 0.2
+# model.wo[0] = 0.25
+# model.bo[0] = 0.1
+# print(model.forward(x))
